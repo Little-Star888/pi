@@ -14,7 +14,7 @@ export interface PackageResourceFilter {
 	themes?: string[];
 }
 
-export interface PackageResourceResolution {
+interface PackageResourceResolution {
 	handled: boolean;
 	resources: Record<ResourceType, Map<string, boolean>>;
 }
@@ -310,7 +310,7 @@ export function discoverExtensionsInDir(dir: string): string[] {
 export function resolveResourcesInDirectory(
 	dir: string,
 	resourceType: ResourceType,
-	options: { recursive?: boolean; skillMode?: "pi" | "agents" } = {},
+	options: { recursive?: boolean; skillMode?: SkillDiscoveryMode } = {},
 ): string[] {
 	switch (resourceType) {
 		case "extensions":
